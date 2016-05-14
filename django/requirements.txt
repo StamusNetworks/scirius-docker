@@ -1,0 +1,15 @@
+daemon
+Django<1.9
+django-bootstrap3
+django-revproxy
+django-tables2
+gitdb
+GitPython
+psutil
+Pygments
+pytz
+requests
+six
+smmap
+urllib3
+# pyinotify
