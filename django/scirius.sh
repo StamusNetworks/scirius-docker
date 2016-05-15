@@ -36,4 +36,6 @@ else
 	migrate_db
 fi
 
+/opt/selks/bin/reset_dashboards.sh &
+
 start

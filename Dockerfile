@@ -1,6 +1,6 @@
 FROM debian:latest
 
-ENV VERSION 1.1.7
+ENV VERSION 1.1.8
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y wget python-pip python-dev git gcc gunicorn
 ADD stamus-packages.list /etc/apt/sources.list.d/
@@ -21,5 +21,8 @@ RUN ln -s /etc/scirius/local_settings.py /opt/selks/scirius/scirius/
 ADD django/scirius.json /tmp/
 ADD django/scirius.sh /opt/selks/bin/
 RUN chmod ugo+x /opt/selks/bin/scirius.sh
+ADD kibana/reset_dashboards.sh /opt/selks/bin/
+RUN chmod ugo+x /opt/selks/bin/reset_dashboards.sh
+RUN git clone https://github.com/StamusNetworks/KTS.git  /opt/kibana-dashboards/
 
 ENTRYPOINT ["/opt/selks/bin/scirius.sh"]
