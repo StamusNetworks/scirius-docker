@@ -2,6 +2,8 @@
 
 cd /opt/selks/scirius/
 
+KIBANA_LOADED="/sciriusdata/kibana_dashboards"
+
 reset_dashboards() {
 	for I in $(seq 0 20); do
 		python manage.py kibana_reset 2>/dev/null && return 0
@@ -12,6 +14,6 @@ reset_dashboards() {
 }
 
 
-if [ ! -e "/var/lib/misc/kibana_dashboards" ]; then
-	reset_dashboards && touch "/var/lib/misc/kibana_dashboards"
+if [ ! -e $KIBANA_LOADED ]; then
+	reset_dashboards && touch $KIBANA_LOADED
 fi
