@@ -24,5 +24,6 @@ RUN chmod ugo+x /opt/selks/bin/scirius.sh
 ADD kibana/reset_dashboards.sh /opt/selks/bin/
 RUN chmod ugo+x /opt/selks/bin/reset_dashboards.sh
 RUN git clone https://github.com/StamusNetworks/KTS.git  /opt/kibana-dashboards/
+RUN pip install elasticsearch-curator
 
 ENTRYPOINT ["/opt/selks/bin/scirius.sh"]
