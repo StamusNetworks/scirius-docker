@@ -3,6 +3,7 @@ Django<1.9
 django-bootstrap3
 django-revproxy
 django-tables2
+django-dbbackup
 gitdb
 GitPython
 psutil
@@ -12,4 +13,5 @@ requests
 six
 smmap
 urllib3
-# pyinotify
+ipy
+elasticsearch
