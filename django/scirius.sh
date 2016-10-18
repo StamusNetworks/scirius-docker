@@ -25,7 +25,7 @@ create_db() {
 
 start() {
 	python manage.py collectstatic --noinput
-	gunicorn -t 120 -b 0.0.0.0:8000 scirius.wsgi
+	gunicorn -w $(($(nproc --all)*2+1)) -t 120 -b 0.0.0.0:8000 scirius.wsgi
 }
 
 # update requirements if needed
