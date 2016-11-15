@@ -8,9 +8,7 @@ migrate_db() {
 }
 
 create_db() {
-	echo "no" | python manage.py syncdb
-	#echo "no" | python manage.py syncdb --settings=scirius.local_settings
-	python manage.py migrate
+	python manage.py migrate --noinput
 	python manage.py loaddata /tmp/scirius.json
 	python manage.py createcachetable my_cache_table
 	python manage.py addsource "ETOpen Ruleset" https://rules.emergingthreats.net/open/suricata-3.0/emerging.rules.tar.gz http sigs
@@ -25,6 +23,7 @@ create_db() {
 
 start() {
 	python manage.py collectstatic --noinput
+	echo "Starting scirius server."
 	gunicorn -w $(($(nproc --all)*2+1)) -t 120 -b 0.0.0.0:8000 scirius.wsgi
 }
 
