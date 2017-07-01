@@ -2,7 +2,7 @@ FROM debian:latest
 
 ENV VERSION 1.2.2
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y wget python-pip python-dev git gcc gunicorn tcpdump
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y wget python-pip python-dev git gcc gunicorn tcpdump gnupg2
 ADD stamus-packages.list /etc/apt/sources.list.d/
 WORKDIR /tmp/
 RUN wget -O stamus.key -q http://packages.stamus-networks.com/packages.stamus-networks.com.gpg.key
