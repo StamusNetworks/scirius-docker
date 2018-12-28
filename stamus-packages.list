@@ -1,1 +1,2 @@
-deb http://packages.stamus-networks.com/debian/ stretch main
+deb http://packages.stamus-networks.com/selks5/debian/ stretch main
+deb http://ftp.debian.org/debian stretch-backports main
