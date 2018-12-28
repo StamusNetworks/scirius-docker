@@ -22,6 +22,10 @@ create_db() {
 }
 
 start() {
+	webpack
+	cd hunt
+	npm run build
+	cd ..
 	python manage.py collectstatic --noinput
 	echo "Starting scirius server."
 	gunicorn -w $(($(nproc --all)*2+1)) -t 120 -b 0.0.0.0:8000 scirius.wsgi
